@@ -24,7 +24,8 @@ namespace WebShop.Controllers
 
             if (narudzbenica != null)
             {
-                ViewBag.TotalNarudzbenice = narudzbenica.Total();
+                ViewBag.TotalNarudzbenice = string.Format("Total: {0:0.00}", narudzbenica.Total());
+                ViewBag.IdNarudzbenice = narudzbenica.Id;
             }
             else
             {

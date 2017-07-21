@@ -18,6 +18,14 @@
         </dd>
     </dl>
 
+    <p>
+        @if (Model.Status == WebShop.Models.StatusNarudzbenice.Otvorena)
+        {
+            @Html.ActionLink("Poruci", "Order", new { id = Model.Id }, new { @class = "btn btn-default" })
+        }  
+    </p>
+    
+
     <table class="table">
         <tr>
             <th>Artikal</th>

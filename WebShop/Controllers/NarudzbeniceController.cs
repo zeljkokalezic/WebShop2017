@@ -115,6 +115,22 @@ namespace WebShop.Controllers
             return RedirectToAction("Index");
         }
 
+        public ActionResult Order(int id)
+        {
+            var narudzbenica = db.Narudzbenice.Find(id);
+
+            narudzbenica.Status = StatusNarudzbenice.Naruceno;
+
+            foreach (var stavka in narudzbenica.Stavke)
+            {
+                stavka.Artikal.RaspolozivaKolicina -= stavka.Kolicina;
+            }
+
+            db.SaveChanges();
+
+            return RedirectToAction("Index");
+        }
+
         protected override void Dispose(bool disposing)
         {
             if (disposing)
