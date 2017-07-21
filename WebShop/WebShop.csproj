@@ -202,6 +202,7 @@
     <Compile Include="Controllers\ArtikliController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\NarudzbeniceController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -295,6 +296,11 @@
     <Content Include="Views\Artikli\Details.cshtml" />
     <Content Include="Views\Artikli\Edit.cshtml" />
     <Content Include="Views\Artikli\Index.cshtml" />
+    <Content Include="Views\Narudzbenice\Create.cshtml" />
+    <Content Include="Views\Narudzbenice\Delete.cshtml" />
+    <Content Include="Views\Narudzbenice\Details.cshtml" />
+    <Content Include="Views\Narudzbenice\Edit.cshtml" />
+    <Content Include="Views\Narudzbenice\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

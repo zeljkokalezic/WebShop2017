@@ -24,7 +24,7 @@ namespace WebShop.Controllers
 
             if (narudzbenica != null)
             {
-                ViewBag.TotalNarudzbenice = narudzbenica.Stavke.Sum(x => x.Cena * x.Kolicina);
+                ViewBag.TotalNarudzbenice = narudzbenica.Total();
             }
             else
             {
@@ -141,7 +141,7 @@ namespace WebShop.Controllers
             return RedirectToAction("Index");
         }
 
-        [Authorize]
+        [Authorize(Roles = "")]
         public ActionResult OrderItem(int id)
         {
             //nalazimo trenutno ulogovanog korisnika

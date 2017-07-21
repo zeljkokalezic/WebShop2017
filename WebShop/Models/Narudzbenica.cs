@@ -8,6 +8,8 @@ namespace WebShop.Models
     public enum StatusNarudzbenice
     {
         Otvorena,
+        Naruceno,
+        Poslato,
         Zatvorena
     }
 
@@ -18,5 +20,11 @@ namespace WebShop.Models
 
         public virtual ApplicationUser User { get; set; }
         public virtual ICollection<Stavka> Stavke { get; set; }
+
+
+        public decimal Total()
+        {
+            return this.Stavke.Sum(x => x.Cena * x.Kolicina);
+        }
     }
 }
