@@ -6,6 +6,8 @@ using System.Web.Mvc;
 
 namespace WebShop.Controllers
 {
+    //registracija filtera na nivou kontrolera
+    [Authorize]
     public class HomeController : Controller
     {
         public ActionResult Index()
@@ -20,6 +22,8 @@ namespace WebShop.Controllers
             return View();
         }
 
+        //registracija filtera na nivou metode
+        [Authorize]
         public ActionResult Contact()
         {
             ViewBag.Message = "Your contact page.";
