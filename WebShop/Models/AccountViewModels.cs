@@ -64,6 +64,12 @@ namespace WebShop.Models
 
     public class RegisterViewModel
     {
+        [Required(ErrorMessage = "ne valja !")]
+        public string Ime { get; set; }
+
+        [Required]
+        public string Prezime { get; set; }
+
         [Required]
         [EmailAddress]
         [Display(Name = "Email")]
@@ -79,6 +85,8 @@ namespace WebShop.Models
         [Display(Name = "Confirm password")]
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
+
+        public Adresa Adresa { get; set; }
     }
 
     public class ResetPasswordViewModel

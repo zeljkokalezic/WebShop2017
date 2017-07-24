@@ -11,6 +11,42 @@
     <h4>Create a new account.</h4>
     <hr />
     @Html.ValidationSummary("", new { @class = "text-danger" })
+    //Dodato
+    <div class="form-group">
+        @Html.LabelFor(m => m.Ime, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.Ime, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.Ime)
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Prezime, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.Prezime, new { @class = "form-control" })
+        </div>
+    </div>
+
+    //Adresa
+    <div class="form-group">
+        @Html.LabelFor(m => m.Adresa.Ulica, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.Adresa.Ulica, new { @class = "form-control" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Adresa.Broj, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.Adresa.Broj, new { @class = "form-control" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Adresa.Grad, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.Adresa.Grad, new { @class = "form-control" })
+        </div>
+    </div>
+
+    //Kraj Dodato
     <div class="form-group">
         @Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label" })
         <div class="col-md-10">
