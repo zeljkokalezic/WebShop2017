@@ -1,9 +1,12 @@
 namespace WebShop.Migrations
 {
+    using Microsoft.AspNet.Identity;
+    using Microsoft.AspNet.Identity.EntityFramework;
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
     using System.Linq;
+    using Models;
 
     internal sealed class Configuration : DbMigrationsConfiguration<WebShop.Models.ApplicationDbContext>
     {
@@ -28,6 +31,14 @@ namespace WebShop.Migrations
             //      new Person { FullName = "Rowan Miller" }
             //    );
             //
+
+            //create roles
+            var roleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(context));
+
+            if(!roleManager.RoleExists(Roles.KUPAC))
+            {
+                roleManager.Create(new IdentityRole(Roles.KUPAC));
+            }
         }
     }
 }

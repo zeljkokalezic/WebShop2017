@@ -142,7 +142,7 @@ namespace WebShop.Controllers
             return RedirectToAction("Index");
         }
 
-        [Authorize(Roles = "")]
+        [Authorize(Roles = Roles.KUPAC)]
         public ActionResult OrderItem(int id)
         {
             //nalazimo trenutno ulogovanog korisnika
