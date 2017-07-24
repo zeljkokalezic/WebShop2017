@@ -8,5 +8,6 @@ namespace WebShop.Models
     public class Roles
     {
         public const string KUPAC = "Kupac";
+        public const string ADMIN = "Administrator";
     }
 }

@@ -11,26 +11,33 @@ using WebShop.Models;
 
 namespace WebShop.Controllers
 {
+    [Authorize(Roles = Roles.ADMIN)]
     public class ArtikliController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Artikli
+        [AllowAnonymous]
         public ActionResult Index()
         {
             var korisnikId = User.Identity.GetUserId();
-            var korisnik = db.Users.Find(korisnikId);
-            var narudzbenica = korisnik.Narudzbenice.Where(x => x.Status == StatusNarudzbenice.Otvorena).FirstOrDefault();
 
-            if (narudzbenica != null)
+            if (korisnikId != null)
             {
-                ViewBag.TotalNarudzbenice = string.Format("Total: {0:0.00}", narudzbenica.Total());
-                ViewBag.IdNarudzbenice = narudzbenica.Id;
+                var korisnik = db.Users.Find(korisnikId);
+                var narudzbenica = korisnik.Narudzbenice.Where(x => x.Status == StatusNarudzbenice.Otvorena).FirstOrDefault();
+
+                if (narudzbenica != null)
+                {
+                    ViewBag.TotalNarudzbenice = string.Format("Total: {0:0.00}", narudzbenica.Total());
+                    ViewBag.IdNarudzbenice = narudzbenica.Id;
+                }
+                else
+                {
+                    ViewBag.TotalNarudzbenice = "Nema artikala";
+                }
             }
-            else
-            {
-                ViewBag.TotalNarudzbenice = "Nema artikala";
-            }
+            
 
             return View(db.Artikli.ToList());
         }
